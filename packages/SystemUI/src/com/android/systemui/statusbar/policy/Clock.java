@@ -335,7 +335,7 @@ public class Clock extends TextView implements DemoMode {
         CharSequence dateString = null;
 
         String result = "";
-        String timeResult = sdf.format(mCalendar.getTime());
+        String timeResult = is24 ? sdf.format(mCalendar.getTime()) : DateFormat.format(format, mCalendar.getTime()).toString();
         String dateResult = "";
 
         int clockDatePosition = Settings.System.getInt(getContext().getContentResolver(),
